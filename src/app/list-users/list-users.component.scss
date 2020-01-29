@@ -1,0 +1,13 @@
+.card-user {
+    max-width: 300px;
+    margin: 8px 0 ;
+    & .mat-card-image{
+        height: 300px;
+        object-fit: cover;
+    } 
+  }
+  @media only screen and (min-width: 540px) {
+    .display-center {
+        justify-content: space-between !important;
+    }}
+  

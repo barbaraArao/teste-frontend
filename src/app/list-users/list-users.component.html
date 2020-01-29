@@ -1,0 +1,26 @@
+<div class="list-users">
+  <div class="container">
+    <h1>Listagem de Usuários </h1>
+    <div class="row display-center">
+      <mat-card class="col-sm-12 col-md-3" *ngFor="let user of listUsers" class="card-user">
+        <mat-card-header>
+          <mat-card-title>{{user.fullName}}</mat-card-title>
+          <mat-card-subtitle>{{user.login}}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="user.photo" (error)="setDefaultPic(user)">
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+              <strong>+ Informações</strong> 
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Email: {{user.email}}</p>
+            <p> CPF: {{user.cpf}}</p>
+            <p> Telefone: {{user.phone}}</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card>
+    </div>
+  </div>
+</div>

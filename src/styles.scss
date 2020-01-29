@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field {
+    display: block !important;
+}
+
+
+button {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color:#000;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+button::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #FFF;
+  transform-origin: center;
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #000;
+  
+  border: 3px solid #000;
+}
+
+button:hover::before {
+  transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
+}
+.display-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login, .register {
+  background-image: url('../src/assets/images/background.jpeg');
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > .mat-card{
+      max-width: 40%;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .login, .register {
+    & > .mat-card{
+        max-width: 70%;
+    }
+  }
+}
+@media only screen and (max-width: 540px) {
+  .login, .register {
+    & > .mat-card{
+        max-width: 90%;
+    }
+  }
+}

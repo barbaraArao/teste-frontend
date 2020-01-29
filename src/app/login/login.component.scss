@@ -1,0 +1,28 @@
+.login{
+    background-image: url('../../assets/images/background.jpeg');
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > .mat-card{
+        max-width: 40%;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    .login {
+      & > .mat-card{
+          max-width: 70%;
+      }
+    }
+  }
+  @media only screen and (max-width: 540px) {
+    .login {
+      & > .mat-card{
+          max-width: 90%;
+      }
+    }
+  }
