@@ -32,7 +32,7 @@
                 <div class="row display-center">
                     <div class="col-md-10">
                         <mat-form-field>
-                            <input matInput placeholder="Senha" formControlName="password">
+                            <input matInput placeholder="Senha" type="password" formControlName="password">
                             <mat-error *ngIf="registerForm.get('password').errors?.required">
                                 Campo obrigatório
                             </mat-error>
@@ -65,7 +65,7 @@
                 <div class="row display-center">
                     <div class="col-md-10">
                         <mat-form-field>
-                            <input matInput placeholder="Telefone" formControlName="phone" mask="00 0000-00009">
+                            <input matInput placeholder="Telefone" formControlName="phone" mask="(00) 0000-00009">
                             <mat-error *ngIf="registerForm.get('phone').errors?.required">
                                 Campo obrigatório
                             </mat-error>

@@ -16,8 +16,8 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
             <p>Email: {{user.email}}</p>
-            <p> CPF: {{user.cpf}}</p>
-            <p> Telefone: {{user.phone}}</p>
+            <p> CPF: {{user.cpf | mask : '000.000.000-00' }}</p>
+            <p> Telefone: {{user.phone | mask : '(00) 00000-00009'}}</p>
           </mat-expansion-panel>
         </mat-accordion>
       </mat-card>
