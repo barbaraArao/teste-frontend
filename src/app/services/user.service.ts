@@ -13,5 +13,8 @@ export class UserService {
 
   getProfiles() {
 		return this.http.get<any>(`${api}List?limit=30`);
+  }
+  registerProfile(dataUser) {
+		return this.http.post<any>(`${api}Register`, dataUser);
 	}
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -13,13 +13,16 @@ const api = environment.api;
   providedIn: 'root'
 })
 export class AuthenticationService {
+
+  isLoginSubject = new EventEmitter<boolean>(this.hasToken());
+
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    
+
   }
 
   public get currentUserValue(): any {
@@ -33,6 +36,8 @@ export class AuthenticationService {
         console.log(login)
         if (login && login.data.access_token) {
           localStorage.setItem('currentUser', JSON.stringify(login));
+          this.isLoginSubject.emit(true);
+
           this.currentUserSubject.next(login);
         }
 
@@ -40,9 +45,17 @@ export class AuthenticationService {
       }));
   }
 
+  isLoggedIn(): Observable<boolean> {
+    return this.isLoginSubject.asObservable();
+  }
+  private hasToken(): boolean {
+    return localStorage.getItem('currentUser') ? true : false;
+  }
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
     this.currentUserSubject.next(null);
+    this.isLoginSubject.emit(false);
+
 
   }
 }

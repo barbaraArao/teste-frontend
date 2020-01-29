@@ -48,6 +48,11 @@ button:hover {
 button:hover::before {
   transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
 }
+button:disabled {
+  background-color: #ccc;
+  color: rgb(82, 79, 79);
+  cursor: default;
+}
 .display-center{
     display: flex;
     justify-content: center;

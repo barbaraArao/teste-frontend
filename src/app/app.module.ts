@@ -14,6 +14,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { NgxMaskModule } from 'ngx-mask'
+
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     ListUsersComponent
   ],
   imports: [
+    NgxMaskModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

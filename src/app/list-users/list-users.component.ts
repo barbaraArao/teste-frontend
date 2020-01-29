@@ -23,7 +23,6 @@ export class ListUsersComponent implements OnInit {
     this.userService.getProfiles().subscribe(
       success => {
        this.listUsers = success.data;
-       console.log(this.listUsers)
       },
       error=>{
         console.log(error)
